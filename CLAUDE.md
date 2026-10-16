@@ -10,6 +10,8 @@ A RAG chatbot that answers questions about course transcripts. FastAPI backend, 
 
 Dependencies are managed with `uv` (Python 3.13+, pinned in `.python-version`).
 
+Always use `uv` to run the server, Python files, and manage all dependencies: `uv run ...` to execute (for example `uv run python script.py`, never bare `python`), `uv add <package>` / `uv remove <package>` to change dependencies, and `uv sync` to install. Do not use `pip` directly (no `pip install` or `uv pip install`); `pyproject.toml` and `uv.lock` are the source of truth.
+
 ```bash
 uv sync                      # install dependencies
 ./run.sh                     # start the server on port 8000
