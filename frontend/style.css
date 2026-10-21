@@ -487,6 +487,7 @@ header h1 {
 
 .new-chat-button {
     font-family: inherit;
+    line-height: 1.6;
     width: 100%;
     text-align: left;
 }
@@ -500,6 +501,7 @@ header h1 {
 .suggested-header::before {
     content: '▶';
     display: inline-block;
+    width: 0.75rem;
     margin-right: 0.5rem;
     transition: transform 0.2s ease;
     font-size: 0.75rem;
@@ -508,6 +510,15 @@ header h1 {
 details[open] .stats-header::before,
 details[open] .suggested-header::before {
     transform: rotate(90deg);
+}
+
+/* "+" marker, sized and spaced like the collapsible headers' arrows */
+.new-chat-button::before {
+    content: '+';
+    display: inline-block;
+    width: 0.75rem;
+    margin-right: 0.5rem;
+    font-size: 0.75rem;
 }
 
 /* Course Stats in Sidebar */
