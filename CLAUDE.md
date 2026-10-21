@@ -91,8 +91,8 @@ Things to know before changing ingestion:
 
 ## Other behaviours
 
-- Sessions are held in memory by `SessionManager` and are lost on restart. `MAX_HISTORY` (2) is the number of exchanges kept.
+- Sessions are held in memory by `SessionManager` and are lost on restart. `MAX_HISTORY` (2) is the number of exchanges kept. The sidebar's "+ New Chat" button calls `DELETE /api/session/{id}` and resets the chat client-side; the next query creates a fresh session.
 - `/api/query` is declared `async` but calls the synchronous Anthropic and Chroma clients, so a slow request blocks the event loop.
 - The frontend has no build step. `index.html` loads `script.js` and `style.css` with a `?v=` query string for cache busting; bump it when changing those files.
 - `main.py` at the repo root is an unused stub. The real entry point is `backend/app.py`.
-- `DevStaticFiles` in `app.py` (no-cache headers) is defined but not used; the mount uses plain `StaticFiles`.
+- The frontend is mounted with `DevStaticFiles` (`app.py`), which sends no-cache headers so browsers always pick up edited frontend files.
